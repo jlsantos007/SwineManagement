@@ -13,6 +13,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 	else {
 		echo "Could not Add";
 	}
-	mysql_close($conn);
+	mysqli_close($conn);
 }
 ?>
