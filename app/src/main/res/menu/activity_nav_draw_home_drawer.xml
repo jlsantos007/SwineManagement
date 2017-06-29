@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/calendar16"
+            android:title="Task" />
+        <item
+            android:id="@+id/nav_herd"
+            android:icon="@drawable/barn16"
+            android:title="Herd" />
+        <item
+            android:id="@+id/nav_pigrecord"
+            android:icon="@drawable/pigrecord16"
+            android:title="Pig Record" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/piggybank16"
+            android:title="Sales and Expenses" />
+    </group>
+
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/nav_controller"
+                android:icon="@drawable/controls16"
+                android:title="@string/controller" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>
