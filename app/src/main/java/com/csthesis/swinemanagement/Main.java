@@ -74,16 +74,16 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                 hashMap.put(Config.KEY_USER_PASS, password);
 
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendPostRequest(Config.URL_SELECT, hashMap);
-                return s;
+                String res= rh.sendPostRequest(Config.URL_SELECT, hashMap);
+                return res;
             }
         }
 
         logIn log = new logIn();
         log.execute();
 
-        Intent intent = new Intent(getApplicationContext(), Splash.class);
-        startActivity(intent);
+//        Intent intent = new Intent(getApplicationContext(), Splash.class);
+//        startActivity(intent);
     }
 
     @Override

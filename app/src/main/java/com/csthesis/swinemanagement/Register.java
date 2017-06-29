@@ -66,6 +66,8 @@ public class Register extends Fragment implements View.OnClickListener {
                 super.onPostExecute(s);
                 loading.dismiss();
                 Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), Main.class);
+                startActivity(intent);
             }
 
             @Override
