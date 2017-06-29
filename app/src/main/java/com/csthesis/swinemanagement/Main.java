@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
@@ -17,7 +18,8 @@ import java.util.HashMap;
 public class Main extends AppCompatActivity implements View.OnClickListener {
 
     private EditText user, pass;
-    private Button btnLogIn, btnRegister;
+    private TextView txtRegister;
+    private Button btnLogIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +29,10 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
         user        = (EditText) findViewById(R.id.userLog);
         pass        = (EditText) findViewById(R.id.passLog);
-        btnRegister = (Button)   findViewById(R.id.register);
+        txtRegister = (TextView) findViewById(R.id.register);
         btnLogIn    = (Button)   findViewById(R.id.login);
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager FM      = getSupportFragmentManager();
