@@ -2,6 +2,7 @@ package com.csthesis.swinemanagement;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
@@ -27,7 +29,8 @@ public class Register extends Fragment implements View.OnClickListener {
 
     View mView;
     EditText user, pass;
-    Button btnAdd, btnCancel;
+    TextView signIn;
+    Button btnAdd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,8 +40,8 @@ public class Register extends Fragment implements View.OnClickListener {
 
         user      = (EditText) mView.findViewById(R.id.user);
         pass      = (EditText) mView.findViewById(R.id.password);
+        signIn    = (TextView) mView.findViewById(R.id.signIn);
         btnAdd    = (Button)   mView.findViewById(R.id.btnAddUser);
-        btnCancel = (Button)   mView.findViewById(R.id.btnCancel);
 
         btnAdd.setOnClickListener(this);
 
