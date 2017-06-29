@@ -4,4 +4,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_nav_draw_home">NavDrawHome</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="controller">Controller</string>
+    <string name="swine_management">Swine Management</string>
+    <string name="farmname_email_com">FarmName@email.com</string>
 </resources>
