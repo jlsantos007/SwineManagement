@@ -82,7 +82,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         logIn log = new logIn();
         log.execute();
 
-//        Intent intent = new Intent(getApplicationContext(), Splash.class);
+//        Intent intent = new Intent(getApplicationContext(), NavDrawHome.class);
 //        startActivity(intent);
     }
 
