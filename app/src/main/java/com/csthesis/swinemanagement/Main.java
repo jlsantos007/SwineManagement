@@ -91,5 +91,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         if(v == btnLogIn){
             LogIn();
         }
+        Intent intent = new Intent(getApplicationContext(),NavDrawHome.class);
+        startActivity(intent);
     }
 }
