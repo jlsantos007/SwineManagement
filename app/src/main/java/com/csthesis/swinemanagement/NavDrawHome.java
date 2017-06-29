@@ -1,8 +1,12 @@
 package com.csthesis.swinemanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import static android.R.attr.fragment;
 
 public class NavDrawHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,21 +86,32 @@ public class NavDrawHome extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+
         if (id == R.id.nav_task) {
             // Handle the camera action
+            Task task = new Task();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.frame_container,task).commit();
         } else if (id == R.id.nav_herd) {
-
+            Herd herd = new Herd();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.frame_container,herd).commit();
         } else if (id == R.id.nav_pigrecord) {
-
+            PigRecord pigrecord = new PigRecord();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, pigrecord).commit();
         } else if (id == R.id.nav_manage) {
-
+            SalesExpenses salesexpenses = new SalesExpenses();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, salesexpenses).commit();
         } else if (id == R.id.nav_controller) {
 
         } else if (id == R.id.nav_send) {
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
