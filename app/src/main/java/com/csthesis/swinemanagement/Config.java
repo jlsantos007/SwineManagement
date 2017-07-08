@@ -6,8 +6,8 @@ package com.csthesis.swinemanagement;
 
 public class Config {
     //Address of PHP Scripts
-    public static final String URL_ADD = "http://192.168.15.8/connection/addUser.php";
-    public static final String URL_SELECT = "http://192.168.15.8/connection/selectUser.php";
+    public static final String URL_ADD = "http://192.168.1.13/connection/addUser.php";
+    public static final String URL_SELECT = "http://192.168.1.13/connection/selectUser.php";
 
     //Keys that will be used to send the request to PHP Scripts
     public static final String KEY_USER_ID   = "id";

@@ -1,10 +1,16 @@
 package com.csthesis.swinemanagement;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+//import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,10 +27,23 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
     private TextView txtRegister;
     private Button btnLogIn;
 
+//    public static final String MyPREFERENCES = "MyPrefs";
+//    public static final String Username      = "userKey";
+//    public static final String Password      = "passKey";
+//
+//    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+
+        if(!isConnected(Main.this)) {
+            buildDialog(Main.this).show();
+        }
+        else {
+            setContentView(R.layout.layout_main);
+        }
         setContentView(R.layout.layout_main);
 
         user        = (EditText) findViewById(R.id.userLog);
@@ -45,6 +64,41 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         });
 
         btnLogIn.setOnClickListener(this);
+//        sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+    }
+
+    public boolean isConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netinfo = cm.getActiveNetworkInfo();
+
+        if (netinfo != null && netinfo.isConnectedOrConnecting()) {
+            android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) return true;
+            else return false;
+        }
+        else
+        return false;
+    }
+
+    public AlertDialog.Builder buildDialog(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("No Internet Connection");
+        builder.setMessage("You need to have Mobile Data or wifi to access this. Press ok to Exit");
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                finish();
+            }
+        });
+
+        return builder;
     }
 
     private void LogIn() {
@@ -79,11 +133,17 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             }
         }
 
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//
+//        editor.putString(Username, username);
+//        editor.putString(Password, password);
+//        editor.commit();
+
         logIn log = new logIn();
         log.execute();
 
-//        Intent intent = new Intent(getApplicationContext(), NavDrawHome.class);
-//        startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), NavDrawHome.class);
+        startActivity(intent);
     }
 
     @Override
@@ -91,7 +151,5 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         if(v == btnLogIn){
             LogIn();
         }
-        Intent intent = new Intent(getApplicationContext(),NavDrawHome.class);
-        startActivity(intent);
     }
 }
